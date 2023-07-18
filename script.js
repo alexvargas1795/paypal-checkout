@@ -48,7 +48,7 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
 
         createOrder: function(data, actions) { //https://developer.paypal.com/docs/api/orders/v2/#orders_create
             return fetch("https://paypal-checkout-tytm.onrender.com/create_order", {
-                method: "post", headers: { "Content-Type": "application/json; charset=utf-8" },
+                method: "post", headers: { "Content-Type": "application/json; charset=utf-8","mode":"no-cors","Access-Control-Allow-Origin":"*" },
                 body: JSON.stringify({ "intent": intent })
             })
             .then((response) => response.json())
@@ -58,7 +58,7 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
         onApprove: function(data, actions) {
             let order_id = data.orderID;
             return fetch("https://paypal-checkout-tytm.onrender.com/complete_order", {
-                method: "post", headers: { "Content-Type": "application/json; charset=utf-8" },
+                method: "post", headers: { "Content-Type": "application/json; charset=utf-8","mode":"no-cors","Access-Control-Allow-Origin":"*" },
                 body: JSON.stringify({
                     "intent": intent,
                     "order_id": order_id

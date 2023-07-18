@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 import 'dotenv/config';
 const app = express();
 app.use(express.json());
-const cors = require('cors');
+
 app.use(express.urlencoded({
     extended: true
 }));
@@ -43,7 +43,9 @@ app.post('/create_order', (req, res) => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${access_token}`
+                        'Authorization': `Bearer ${access_token}`,
+                        "mode":"no-cors",
+                        "Access-Control-Allow-Origin":"*" 
                     },
                     body: data
                 })
@@ -78,7 +80,9 @@ app.post('/complete_order', (req, res) => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${access_token}`
+                        'Authorization': `Bearer ${access_token}`,
+                        "mode":"no-cors",
+                        "Access-Control-Allow-Origin":"*" 
                     }
                 })
                 .then(res => res.json())
@@ -118,7 +122,9 @@ function get_access_token() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': `Basic ${Buffer.from(auth).toString('base64')}`
+                'Authorization': `Basic ${Buffer.from(auth).toString('base64')}`,
+                "mode":"no-cors",
+                "Access-Control-Allow-Origin":"*" 
             },
             body: data
         })
