@@ -44,8 +44,8 @@ app.post('/create_order', (req, res) => {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${access_token}`,
-                        "mode":"no-cors",
-                        "Access-Control-Allow-Origin":"*" 
+                        'mode':'no-cors',
+                        'Access-Control-Allow-Origin':'*' 
                     },
                     body: data
                 })
@@ -81,8 +81,8 @@ app.post('/complete_order', (req, res) => {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${access_token}`,
-                        "mode":"no-cors",
-                        "Access-Control-Allow-Origin":"*" 
+                        'mode':'no-cors',
+                        'Access-Control-Allow-Origin':'*' 
                     }
                 })
                 .then(res => res.json())
@@ -123,8 +123,8 @@ function get_access_token() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': `Basic ${Buffer.from(auth).toString('base64')}`,
-                "mode":"no-cors",
-                "Access-Control-Allow-Origin":"*" 
+                'mode':'no-cors',
+                'Access-Control-Allow-Origin':'*' 
             },
             body: data
         })
