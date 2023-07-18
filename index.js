@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 import 'dotenv/config';
 const app = express();
 app.use(express.json());
+const cors = require('cors');
 app.use(express.urlencoded({
     extended: true
 }));
