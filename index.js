@@ -111,7 +111,7 @@ app.get('/', (req, res) => {
     
         // Aquí puedes hacer lo que desees con los datos recibidos
         console.log('varUserID:', varUserID);
-
+        console.log('hola');
 });
 //Servers the style.css file
 app.get('/style.css', (req, res) => {
