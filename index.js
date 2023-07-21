@@ -99,17 +99,7 @@ app.post('/complete_order', (req, res) => {
 
 // Helper / Utility functions
 
-app.get('/', (req, res) => {
-    // Obtener los parámetros de la URL
-    const varUserID = req.query.varUserID;
-    
-    // Aquí puedes hacer lo que desees con los datos recibidos
-    console.log('varUserID:', varUserID);
-    // ... realizar más acciones con los datos
-    
-    // Respuesta al cliente
-    res.send('Información procesada con éxito');
-  });
+
 
 
 
@@ -148,7 +138,17 @@ function get_access_token() {
             return json.access_token;
         })
 }
-
+app.get('/', (req, res) => {
+    // Obtener los parámetros de la URL
+    const varUserID = req.query.varUserID;
+    
+    // Aquí puedes hacer lo que desees con los datos recibidos
+    console.log('varUserID:', varUserID);
+    // ... realizar más acciones con los datos
+    
+    // Respuesta al cliente
+    res.send('Información procesada con éxito');
+  });
 
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
