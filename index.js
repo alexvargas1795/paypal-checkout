@@ -102,6 +102,15 @@ app.post('/complete_order', (req, res) => {
 //Servers the index.html file
 app.get('/', (req, res) => {
     res.sendFile(process.cwd() + '/index.html');
+        // Obtener los parámetros de la URL
+        const varUserID = req.query.varUserID;
+  
+        // Aquí puedes hacer lo que desees con los datos recibidos
+        console.log('varUserID', varUserID);
+        // ... realizar más acciones con los datos
+      
+        // Respuesta al cliente
+        res.send('Información procesada con éxito');
 });
 //Servers the style.css file
 app.get('/style.css', (req, res) => {
@@ -133,18 +142,6 @@ function get_access_token() {
             return json.access_token;
         })
 }
-
-app.get('/', (req, res) => {
-    // Obtener los parámetros de la URL
-    const varUserID = req.query.varUserID;
-  
-    // Aquí puedes hacer lo que desees con los datos recibidos
-    console.log('varUserID', varUserID);
-    // ... realizar más acciones con los datos
-  
-    // Respuesta al cliente
-    res.send('Información procesada con éxito');
-  })
 
 
 app.listen(port, () => {
