@@ -114,7 +114,7 @@ app.get('/', (req, res) => {
 
 
 //Servers the index.html file
-app.get('/index.html', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(process.cwd() + '/index.html');
 
 });
