@@ -137,3 +137,16 @@ function get_access_token() {
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
 })
+
+app.get('/', (req, res) => {
+    // Obtener los parámetros de la URL
+    const urlParams = new URLSearchParams(req.query);
+    const dato1 = urlParams.get('varUserID');
+  
+    // Aquí puedes hacer lo que desees con los datos recibidos
+    console.log('varUserID', dato1);
+    // ... realizar más acciones con los datos
+  
+    // Respuesta al cliente
+    res.send('Información procesada con éxito');
+  })
