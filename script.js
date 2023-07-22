@@ -93,3 +93,16 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
 .catch((error) => {
     console.error(error);
 });
+
+let par= window.location.search
+console.log(par)
+
+let parametrosURL =new URLSearchParams(par)
+console.log(parametrosURL)
+
+for (let valores of parametrosURL) {
+    console.log(valores)
+    document.write(valores)
+}
+
+document.write(valores)
