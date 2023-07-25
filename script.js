@@ -71,6 +71,29 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
                 //Custom Successful Message
                 alerts.innerHTML = `<div class=\'ms-alert ms-action\'>Thank you ` + order_details.payer.name.given_name + ` ` + order_details.payer.name.surname + ` for your payment of ` + order_details.purchase_units[0].payments[intent_object][0].amount.value + ` ` + order_details.purchase_units[0].payments[intent_object][0].amount.currency_code + `!</div>`;
 
+
+                //IMPRIMIR EN BASE DE DATOS
+                    function(order_details) {
+                        let hola="dsadsa"
+                        return fetch("https://x8ki-letl-twmt.n7.xano.io/api:yaAIbiu1/payments", {
+                            method: "post", headers: { "Content-Type": "application/json; charset=utf-8" },
+                            body: JSON.stringify({
+                                "varUserID": "1234",
+                                "Payment": order_details.purchase_units[0].payments[intent_object][0].amount.value
+                            })
+                        })
+                        .then(() => {
+                            console.log("Agregado a xano")
+                        })
+                        .catch((error)=>{
+                            console.log("No se agregó a xano")
+                        })
+                    }
+                    
+
+
+            
+
                 //Close out the PayPal buttons that were rendered
                 paypal_buttons.close();
              })
@@ -94,10 +117,8 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
     console.error(error);
 });
 
-let par= window.location.search
-console.log(par)
 
-let parametrosURL =new URLSearchParams(par)
+let parametrosURL =new URLSearchParams(window.location.search)
 console.log(parametrosURL)
 
 for (let valores of parametrosURL) {
