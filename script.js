@@ -73,9 +73,7 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
 
 
                 //IMPRIMIR EN BASE DE DATOS
-                    function(order_details) {
-                        let hola="dsadsa"
-                        return fetch("https://x8ki-letl-twmt.n7.xano.io/api:yaAIbiu1/payments", {
+                    fetch("https://x8ki-letl-twmt.n7.xano.io/api:yaAIbiu1/payments", {
                             method: "post", headers: { "Content-Type": "application/json; charset=utf-8" },
                             body: JSON.stringify({
                                 "varUserID": "1234",
@@ -88,12 +86,7 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
                         .catch((error)=>{
                             console.log("No se agregó a xano")
                         })
-                    }
-                    
-
-
-            
-
+                                   
                 //Close out the PayPal buttons that were rendered
                 paypal_buttons.close();
              })
