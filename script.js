@@ -82,6 +82,7 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
                         })
                         .then(() => {
                             console.log("Agregado a xano")
+                            setTimeout( function() { window.location.href = "https://p70dcb2e9618d4491be43f71061d1ce7e.bildr.com/dashboard?Pago=True"; }, 5000 )
                         })
                         .catch((error)=>{
                             console.log("No se agregó a xano")
